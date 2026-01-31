@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>耀文行動商城 - 專屬購物問卷 | 2026流年運勢分析</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="透過潛意識購物測驗，了解您的消費性格與2026流年運勢。專業生命靈數分析，為您推薦最適合的商品。">
+
+    <!-- [NEW] 社群分享預覽設定 (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://randytsay.github.io/questionnaire/">
+    <meta property="og:title" content="耀文行動商城 - 2026流年運勢 & 選品測驗">
+    <meta property="og:description" content="透過潛意識測驗，了解您的消費性格與2026流年運勢。馬上測測看！">
+    <meta property="og:image" content="https://randytsay.github.io/questionnaire/images/preview.jpg">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://randytsay.github.io/questionnaire/">
+    <meta property="twitter:title" content="耀文行動商城 - 2026流年運勢 & 選品測驗">
+    <meta property="twitter:description" content="透過潛意識測驗，了解您的消費性格與2026流年運勢。馬上測測看！">
+    <meta property="twitter:image" content="https://randytsay.github.io/questionnaire/images/preview.jpg">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans TC"', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff', 100: '#ede9fe', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Hide scrollbar for clean look */
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            background-color: #f8fafc;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Card Selection Logic */
+        .option-input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .option-input:checked+.option-card {
+            border-color: #7c3aed;
+            border-width: 2px;
+            background-color: #f5f3ff;
+            color: #6d28d9;
+            box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1), 0 2px 4px -1px rgba(124, 58, 237, 0.06);
+            transform: scale(1.02);
+        }
+
+        .option-input:checked+.option-card .icon-box {
+            background-color: #ede9fe;
+            color: #7c3aed;
+        }
+
+        /* Hover effects */
+        .option-card {
+            transition: all 0.2s ease;
+            min-height: 44px;
+        }
+
+        .option-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .option-input:checked+.option-card:hover {
+            transform: scale(1.02) translateY(-2px);
+        }
+
+        /* Smooth transition for step switching */
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Progress Bar transition */
+        #progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Other Input Focus */
+        .other-input:focus {
+            border-bottom-color: #7c3aed;
+            outline: none;
+        }
+
+        /* Error state for validation */
+        .error-shake {
+            animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+        }
+
+        .border-error {
+            border-color: #ef4444 !important;
+            border-width: 2px !important;
+            background-color: #fef2f2 !important;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 70;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        /* Radio button size */
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* Completion indicator */
+        .completion-ring {
+            transition: stroke-dashoffset 0.5s ease;
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 h-screen flex flex-col">
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Header / Progress Area -->
+    <div class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-semibold text-brand-600 tracking-wider">耀文行動商城</span>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-medium text-gray-400" id="step-indicator">Step 1/7</span>
+                    <!-- Completion Percentage -->
+                    <div class="flex items-center gap-1">
+                        <svg width="24" height="24" class="transform -rotate-90">
+                            <circle cx="12" cy="12" r="10" stroke="#e5e7eb" stroke-width="2" fill="none" />
+                            <circle id="completion-circle" class="completion-ring" cx="12" cy="12" r="10"
+                                stroke="#7c3aed" stroke-width="2" fill="none" stroke-dasharray="62.83"
+                                stroke-dashoffset="62.83" />
+                        </svg>
+                        <span id="completion-text" class="text-xs font-bold text-brand-600">0%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                <div id="progress-bar" class="h-full bg-brand-600 rounded-full" style="width: 16%" role="progressbar"
+                    aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auto-save Indicator -->
+    <div id="save-indicator"
+        class="fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50 text-sm">
+        <i class="fa-solid fa-check-circle mr-1"></i> 已自動儲存
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 overflow-y-auto pb-24" id="main-scroll">
+        <div class="max-w-xl mx-auto px-4 py-6">
+
+            <script>var submitted = false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted) {showSuccessModal();}"></iframe>
+
+            <form id="surveyForm"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSehmsVa_hZXpzUULczgp6SHdwMWP_1pwOMmd7CYhHSmT8glCA/formResponse"
+                method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
+                <!-- Google Form Verification Tokens (FIXED) -->
+                <input type="hidden" name="fvv" value="1">
+                <input type="hidden" name="fbzx" value="3332142635860987282">
+                <input type="hidden" name="pageHistory" value="0">
+
+                <!-- STEP 1: Psychological Test -->
+                <div id="step1" class="step-content active">
+                    
+                    <!-- [NEW] 虛擬店長歡迎區塊 (使用 avatar_welcome.jpg) -->
+                    <div class="flex flex-col items-center mb-8 relative">
+                        <!-- 圖片 -->
+                        <div class="w-32 h-32 rounded-full border-4 border-white shadow-xl overflow-hidden mb-4 relative z-10 bg-brand-100">
+                            <!-- 請確保 avatar_welcome.jpg 存在於您的 images 資料夾 -->
+                            <img src="https://randytsay.github.io/questionnaire/images/avatar_welcome.jpg" alt="耀文" class="w-full h-full object-cover object-top">
+                        </div>
+                        
+                        <!-- 對話框 -->
+                        <div class="bg-white p-4 rounded-2xl shadow-md border border-gray-100 text-center relative -mt-8 pt-10 w-full animate-fade-in">
+                            <h2 class="text-xl font-bold text-brand-700 mb-1">嗨！我是耀文 👋</h2>
+                            <p class="text-gray-600 text-sm">歡迎來到行動商城！<br>讓我用 3 分鐘，幫您測出 <span class="text-brand-600 font-bold">2026 流年運勢</span> 吧！</p>
+                            <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-gray-100"></div>
+                        </div>
+                    </div>
+                    <!-- 虛擬店長結束 -->
+
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <p class="text-xl font-bold text-brand-700 mb-6 text-center leading-relaxed">
+                            <span class="border-b-4 border-brand-200">當您第一次走進一家沒去過的店，<br>最先吸引您注意的是？</span>
+                        </p>
+                        <div class="space-y-3">
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="psyChoice" value="visual" data-psy="visual"
+                                    class="option-input" onchange="storePsyResult('visual')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-lightbulb"></i>
+                                    </div>
+                                    <span class="text-base font-medium">店內的燈光、裝潢與擺設</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="psyChoice" value="auditory" data-psy="auditory"
+                                    class="option-input" onchange="storePsyResult('auditory')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-music"></i>
+                                    </div>
+                                    <span class="text-base font-medium">店內播放的音樂或人聲</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="psyChoice" value="olfactory" data-psy="olfactory"
+                                    class="option-input" onchange="storePsyResult('olfactory')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-wind"></i>
+                                    </div>
+                                    <span class="text-base font-medium">店內散發的香氛或氣味</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="psyChoice" value="price" data-psy="price" class="option-input"
+                                    onchange="storePsyResult('price')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </div>
+                                    <span class="text-base font-medium">商品的價格標籤或優惠訊息</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Basic Info -->
+                <div id="step2" class="step-content">
+                    <h3 class="text-2xl font-bold text-brand-700 mb-6 border-l-4 border-brand-500 pl-3">基本資料</h3>
+                    <div class="space-y-6 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="relative">
+                            <label class="block text-lg font-bold text-brand-700 mb-2">
+                                您的名字 / Line 暱稱 <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="entry.764813538" id="input-name" autocomplete="name"
+                                autocapitalize="words"
+                                class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-lg"
+                                placeholder="例：耀文" required>
+                            <p class="text-xs text-gray-500 mt-1">讓我們知道如何稱呼您</p>
+                        </div>
+                        <div class="relative">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="block text-lg font-bold text-brand-700">
+                                    您的生日 <span class="text-sm font-normal text-gray-500">(用於計算流年運勢)</span> <span
+                                        class="text-red-500">*</span>
+                                </label>
+                                <!-- 年份制切換開關 -->
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <span class="mr-2 text-xs font-medium text-gray-500" id="era-text-ad">西元</span>
+                                    <div class="relative inline-flex items-center">
+                                        <input type="checkbox" id="era-toggle" class="sr-only peer"
+                                            onchange="toggleEra()">
+                                        <div
+                                            class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-600">
+                                        </div>
+                                    </div>
+                                    <span class="ml-2 text-xs font-medium text-gray-500" id="era-text-minguo">民國</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="tel" id="birth-year" maxlength="4" placeholder="YYYY"
+                                    class="w-24 px-3 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+                                    oninput="handleDateAutoJump(this, 'birth-month')">
+                                <span class="text-gray-400 font-bold">/</span>
+                                <input type="tel" id="birth-month" maxlength="2" placeholder="MM"
+                                    class="w-16 px-2 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+                                    oninput="handleDateAutoJump(this, 'birth-day')">
+                                <span class="text-gray-400 font-bold">/</span>
+                                <input type="tel" id="birth-day" maxlength="2" placeholder="DD"
+                                    class="w-16 px-2 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+                                    oninput="syncFullBirthday(); updateCompletion()">
+                            </div>
+                            <!-- 隱藏實體用於 Google Forms 提交 -->
+                            <input type="hidden" name="entry.1793598150" id="input-birthday">
+                            <p class="text-xs text-gray-500 mt-1">請輸入真實生日 (例如：1990 / 05 / 20)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Lifestyle -->
+                <div id="step3" class="step-content">
+                    <h3 class="text-2xl font-bold text-brand-700 mb-6 border-l-4 border-brand-500 pl-3">您的生活風格</h3>
+
+                    <!-- Shopping -->
+                    <div class="mb-10">
+                        <input type="hidden" name="entry.1921616399_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">平常都在哪裡購物？ <span
+                                class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="網購" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-mobile-screen"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">網購</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="超市" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">超市</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="外食族" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">外食族</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="家中會下廚" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-fire-burner"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">會下廚</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="傳統市場" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-basket-shopping"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">傳統市場</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.1921616399" value="產地宅配" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex flex-col items-center justify-center text-center h-28 transition-all">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 mb-2 text-xl transition-colors">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <span class="font-bold text-gray-700">產地宅配</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div
+                            class="bg-gradient-to-r from-gray-50 to-white p-3 rounded-lg border border-dashed border-gray-300 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">💭 想到其他的嗎？</span>
+                            <!-- [FIXED] 隱藏的 checkbox，用來觸發 "其他" 選項 -->
+                            <input type="checkbox" name="entry.1921616399" value="__other_option__" id="other-shop" class="hidden">
+                            
+                            <!-- [FIXED] 文字框 name 加上 .other_option_response，並加入 oninput 自動勾選邏輯 -->
+                            <input type="text" name="entry.1921616399.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="歡迎告訴我們..."
+                                oninput="document.getElementById('other-shop').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+
+                    <!-- Travel Freq -->
+                    <div class="mb-10">
+                        <input type="hidden" name="entry.1954197687_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">旅行偏好 <span class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1954197687" value="國內" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🇹🇼 國內</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1954197687" value="國外" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    ✈️ 國外</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1954197687" value="每個月" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    📅 每個月</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1954197687" value="一年2次" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    ✌️ 一年2次</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1954197687" value="一年1次" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    ☝️ 一年1次</div>
+                            </label>
+                        </div>
+                        <div
+                            class="bg-gradient-to-r from-gray-50 to-white p-3 rounded-lg border border-dashed border-gray-300 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">💭 想到其他的嗎？</span>
+                            <input type="checkbox" name="entry.1954197687" value="__other_option__" id="other-travel-pref" class="hidden">
+                            <input type="text" name="entry.1954197687.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="歡迎告訴我們..."
+                                oninput="document.getElementById('other-travel-pref').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+
+                    <!-- Travel Plan -->
+                    <div>
+                        <input type="hidden" name="entry.1930263458_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">旅行規劃方式 <span class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="自由行" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <i class="fa-solid fa-person-hiking text-gray-400 text-lg"></i>
+                                    <span class="text-base font-bold text-gray-700">自由行</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="跟團旅行" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <i class="fa-solid fa-users-line text-gray-400 text-lg"></i>
+                                    <span class="text-base font-bold text-gray-700">跟團</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="Klook" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">Klook</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="KKday" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">KKday</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="Agoda.com" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">Agoda</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="Booking.com" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">Booking</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="Hotels.com" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">Hotels.com</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.1930263458" value="攜程網" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <span class="text-base font-bold text-gray-700">攜程網</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">其他：</span>
+                            <input type="checkbox" name="entry.1930263458" value="__other_option__" id="other-travel-plan" class="hidden">
+                            <input type="text" name="entry.1930263458.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="請輸入..."
+                                oninput="document.getElementById('other-travel-plan').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Health -->
+                <div id="step4" class="step-content">
+                    <h3 class="text-2xl font-bold text-brand-700 mb-6 border-l-4 border-brand-500 pl-3">健康目標</h3>
+
+                    <!-- Supplements -->
+                    <div class="mb-10">
+                        <input type="hidden" name="entry.87245979_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">您關注的保健需求？ <span
+                                class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="眼睛/疲勞、乾眼、老花、近視、白內障"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">眼睛疲勞</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="骨質疏鬆/膝關節退化" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-bone"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">骨骼關節</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="三高：高血壓/糖尿病/高血脂"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-heart-pulse"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">三高問題</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="失眠/淺眠" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-moon"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">睡眠品質</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="拉肚子/便秘" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-yellow-50 text-yellow-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-toilet"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">腸胃便秘</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="胃脹氣/胃潰瘍" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">胃脹消化</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="壓力大/工作時間長/爆肝" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-orange-50 text-orange-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-battery-half"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">疲勞壓力</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="大人綜合維他命/B群" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-green-50 text-green-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-pills"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">基礎B群</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="兒童綜合維他命/益生菌" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-child"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">兒童保健</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="男性長輩攝護腺問題" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-mars"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">攝護腺</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="女性經前症候群/更年期" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-venus"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">女性調理</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="checkbox" name="entry.87245979" value="沒吃保健品" class="option-input">
+                                <div
+                                    class="option-card p-3 rounded-xl border border-gray-200 bg-white flex items-center gap-3 transition-all shadow-sm">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-gray-50 text-gray-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-ban"></i>
+                                    </div>
+                                    <span class="text-sm font-bold text-gray-700">無需求</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">其他：</span>
+                            <input type="checkbox" name="entry.87245979" value="__other_option__" id="other-supplements" class="hidden">
+                            <input type="text" name="entry.87245979.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="請輸入..."
+                                oninput="document.getElementById('other-supplements').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+
+                    <!-- Weight -->
+                    <div>
+                        <input type="hidden" name="entry.72843877_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">體重管理需求 <span class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="space-y-2 mb-4">
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="有運動習慣：跑步、健身、登山、瑜伽"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🏃 有運動習慣 (跑步、健身...)</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="想調整體態：蝴蝶袖、鮪魚肚、大腿粗、臀部"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🏋️‍♀️ 想調整體態 (蝴蝶袖、鮪魚肚...)</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="想降低體脂/內臟脂肪" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    📉 想降低體脂 / 內臟脂肪</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="有需要點心/代餐/瘦身輔助品"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🥤 需要代餐 / 輔助品</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="想增肥" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🍔 想增肥</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.72843877" value="都不需要" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🚫 都不需要</div>
+                            </label>
+                        </div>
+                        <div
+                            class="bg-gradient-to-r from-gray-50 to-white p-3 rounded-lg border border-dashed border-gray-300 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">💭 想到其他的嗎？</span>
+                            <input type="checkbox" name="entry.72843877" value="__other_option__" id="other-weight" class="hidden">
+                            <input type="text" name="entry.72843877.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="歡迎告訴我們..."
+                                oninput="document.getElementById('other-weight').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: Consumer Decision Style (NEW) -->
+                <div id="step5" class="step-content">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="flex items-center justify-center w-14 h-14 bg-orange-100 rounded-full text-orange-600 shrink-0">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-brand-700">消費決策風格</h2>
+                            <p class="text-gray-600 text-sm">測出您的購物決策類型！</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                        <p class="text-xl font-bold text-brand-700 mb-6 text-center leading-relaxed">
+                            <span class="border-b-4 border-orange-200">當商場正在辦限時特賣，<br>您最可能會...？</span>
+                            <span class="text-red-500 ml-1">*</span>
+                        </p>
+                        <div class="space-y-3" id="decision-style-group">
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="decisionStyle" value="impulse" class="option-input"
+                                    onchange="storeDecisionStyle('impulse')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-fire"></i>
+                                    </div>
+                                    <span class="text-base font-medium">立刻衝過去看看！機會不等人</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="decisionStyle" value="rational" class="option-input"
+                                    onchange="storeDecisionStyle('rational')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <span class="text-base font-medium">先查評價和比價再決定</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="decisionStyle" value="social" class="option-input"
+                                    onchange="storeDecisionStyle('social')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-users"></i>
+                                    </div>
+                                    <span class="text-base font-medium">問問朋友的意見最安心</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group block">
+                                <input type="radio" name="decisionStyle" value="patient" class="option-input"
+                                    onchange="storeDecisionStyle('patient')">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white flex items-center gap-4 transition-all hover:bg-gray-50">
+                                    <div
+                                        class="icon-box w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shrink-0 text-lg">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <span class="text-base font-medium">再等等，說不定有更好的</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 6: Beauty (was Step 5) -->
+                <div id="step6" class="step-content">
+                    <h3 class="text-2xl font-bold text-brand-700 mb-6 border-l-4 border-brand-500 pl-3">美麗保養</h3>
+
+                    <!-- Skin Type -->
+                    <div class="mb-10 relative">
+                        <input type="hidden" name="entry.798701128_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">您的肌膚屬性？ <span class="text-red-500">*</span></p>
+                        <div class="flex flex-wrap gap-3" id="skin-type-group">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="中性" class="option-input" required>
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    😊 中性</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="油性" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    💧 油性</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="乾性" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🌵 乾性</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="混合性" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🌗 混合性</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="敏感性" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🪶 敏感性</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="entry.798701128" value="不知道" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    ❓ 不知道</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="mb-10">
+                        <input type="hidden" name="entry.3439028_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">會購買的護膚品？ <span
+                                class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="grid grid-cols-3 gap-3 text-center mb-4">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="洗面乳" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    洗面乳</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="化妝水" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    化妝水</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="精華液" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    精華液</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="乳液" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    乳液</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="防曬" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    防曬</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="眼霜" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    眼霜</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="美白" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    美白</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="淡斑" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    淡斑</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="除皺" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    除皺</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="面膜/眼膜" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    面膜/眼膜</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="身體護手乳" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    身體護手乳</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.3439028" value="沒保養" class="option-input">
+                                <div
+                                    class="option-card py-4 rounded-xl border border-gray-200 bg-white text-sm font-bold text-gray-700 transition-all shadow-sm">
+                                    沒保養</div>
+                            </label>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">其他：</span>
+                            <input type="checkbox" name="entry.3439028" value="__other_option__" id="other-skincare" class="hidden">
+                            <input type="text" name="entry.3439028.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="請輸入..."
+                                oninput="document.getElementById('other-skincare').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+
+                    <!-- Makeup -->
+                    <div>
+                        <input type="hidden" name="entry.582521907_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">彩妝需求？ <span class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="space-y-2 mb-4">
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.582521907" value="臉妝：粉底霜/粉底液/腮紅/修容餅/蜜粉"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    💄 臉妝 (粉底、腮紅...)</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.582521907" value="眼妝：睫毛膏/眼線筆/眼影/眉筆/睫毛增長液"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    👁️ 眼妝 (睫毛、眼線...)</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.582521907" value="唇妝：護唇膏/乾裂/唇細紋/口紅/唇蜜"
+                                    class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    💋 唇妝 (口紅、護唇...)</div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="checkbox" name="entry.582521907" value="不化妝" class="option-input">
+                                <div
+                                    class="option-card p-4 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🚫 不化妝</div>
+                            </label>
+                        </div>
+                        <div
+                            class="bg-gradient-to-r from-gray-50 to-white p-3 rounded-lg border border-dashed border-gray-300 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">💭 想到其他的嗎？</span>
+                            <input type="checkbox" name="entry.582521907" value="__other_option__" id="other-makeup" class="hidden">
+                            <input type="text" name="entry.582521907.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="歡迎告訴我們..."
+                                oninput="document.getElementById('other-makeup').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 7: Family & Feedback (was Step 6) -->
+                <div id="step7" class="step-content">
+                    <h3 class="text-2xl font-bold text-brand-700 mb-6 border-l-4 border-brand-500 pl-3">最後一步：您的想法</h3>
+
+                    <!-- Baby -->
+                    <div class="mb-10">
+                        <input type="hidden" name="entry.835140164_sentinel" value="">
+                        <p class="text-lg font-bold text-brand-700 mb-4">家中有嬰幼兒用品需求嗎？ <span
+                                class="text-red-500">*</span><span
+                                class="text-sm font-normal text-gray-500 ml-2">(可複選)</span></p>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.835140164" value="尿布/配方奶粉" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🍼 奶粉尿布</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.835140164" value="嬰兒沐浴乳" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🛁 沐浴乳</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.835140164" value="預防紅屁屁" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    👶 預防紅屁屁</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.835140164" value="嬰兒乳液" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🧴 嬰兒乳液</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="entry.835140164" value="都不需要" class="option-input">
+                                <div
+                                    class="option-card px-5 py-3 rounded-xl border border-gray-200 bg-white text-base font-bold text-gray-700 transition-all shadow-sm">
+                                    🚫 都不需要</div>
+                            </label>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 flex items-center">
+                            <span class="text-gray-500 text-sm mr-2 shrink-0 font-medium">其他：</span>
+                            <input type="checkbox" name="entry.835140164" value="__other_option__" id="other-baby" class="hidden">
+                            <input type="text" name="entry.835140164.other_option_response"
+                                class="other-input w-full bg-transparent border-b border-gray-300 outline-none text-base text-gray-700 py-1"
+                                placeholder="請輸入..."
+                                oninput="document.getElementById('other-baby').checked = (this.value.trim() !== '')">
+                        </div>
+                    </div>
+
+                    <!-- Feedback Grid -->
+                    <div class="space-y-5">
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 feedback-group"
+                            id="feedback-1">
+                            <input type="hidden" name="entry.1155724814_sentinel" value="">
+                            <p class="text-base font-bold text-gray-800 mb-3">喜歡群組「你問我找」的無壓力購物模式嗎？ <span
+                                    class="text-red-500">*</span></p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1155724814" value="是"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500" required>
+                                    <span class="ml-3 text-base text-gray-700 font-medium">是</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1155724814" value="否"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">否</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1155724814" value="我沒在購物群"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">我沒在購物群</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 feedback-group"
+                            id="feedback-2">
+                            <input type="hidden" name="entry.1228384346_sentinel" value="">
+                            <p class="text-base font-bold text-gray-800 mb-3">物價飛漲，覺得生活不易或錢越來越難用？ <span
+                                    class="text-red-500">*</span></p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1228384346" value="是"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500" required>
+                                    <span class="ml-3 text-base text-gray-700 font-medium">是</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1228384346" value="否"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">否</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.1228384346" value="我沒在購物群"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">我沒在購物群</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 feedback-group"
+                            id="feedback-3">
+                            <input type="hidden" name="entry.33216688_sentinel" value="">
+                            <p class="text-base font-bold text-gray-800 mb-3">喜歡群組有人服務您網購嗎？ <span
+                                    class="text-red-500">*</span></p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.33216688" value="是"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500" required>
+                                    <span class="ml-3 text-base text-gray-700 font-medium">是</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.33216688" value="否"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">否</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.33216688" value="我沒在購物群"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">我沒在購物群</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 feedback-group"
+                            id="feedback-4">
+                            <input type="hidden" name="entry.2018998320_sentinel" value="">
+                            <p class="text-base font-bold text-gray-800 mb-3">若有機會透過網路消費增加收入，您會有興趣嗎？ <span
+                                    class="text-red-500">*</span></p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.2018998320" value="是"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500" required>
+                                    <span class="ml-3 text-base text-gray-700 font-medium">是</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.2018998320" value="否"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">否</span>
+                                </label>
+                                <label
+                                    class="inline-flex items-center p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="entry.2018998320" value="我沒在購物群"
+                                        class="w-5 h-5 text-brand-600 focus:ring-brand-500">
+                                    <span class="ml-3 text-base text-gray-700 font-medium">我沒在購物群</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Navigation Buttons Fixed at Bottom -->
+    <div class="bg-white border-t border-gray-100 p-4 sticky bottom-0 z-50 shadow-lg">
+        <div class="max-w-xl mx-auto flex gap-3">
+            <button type="button" id="prev-btn" onclick="changeStep(-1)"
+                class="hidden flex-1 py-3 px-4 rounded-xl border-2 border-gray-200 text-gray-600 font-bold hover:bg-gray-50 transition-all active:scale-95">
+                <i class="fa-solid fa-arrow-left mr-2"></i>上一步
+            </button>
+            <button type="button" id="next-btn" onclick="changeStep(1)"
+                class="flex-1 py-3 px-4 rounded-xl bg-brand-600 text-white font-bold shadow-lg shadow-brand-200 hover:bg-brand-700 transition-all active:scale-95">
+                下一步<i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+            <button type="button" id="submit-btn" onclick="attemptSubmit()"
+                class="hidden flex-1 py-3 px-4 rounded-xl bg-brand-600 text-white font-bold shadow-lg shadow-brand-200 hover:bg-brand-700 transition-all active:scale-95">
+                <i class="fa-solid fa-sparkles mr-2"></i>查看測驗結果
+            </button>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="successModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        <div
+            class="relative bg-white rounded-3xl p-0 max-w-sm w-full shadow-2xl transform transition-all scale-100 overflow-hidden flex flex-col max-h-[90vh]">
+
+            <!-- [NEW] Result Header (使用 avatar_result.jpg) -->
+            <div class="bg-gradient-to-br from-brand-600 to-brand-700 p-5 text-white shrink-0 relative overflow-hidden">
+                <!-- 裝飾背景圓圈 -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10"></div>
+                
+                <div class="flex items-center gap-4 relative z-10">
+                    <!-- 把原本的 icon 換成頭像 -->
+                    <div class="w-16 h-16 rounded-full border-2 border-white/50 shadow-lg overflow-hidden shrink-0 bg-white">
+                        <!-- 請確保 avatar_result.jpg 存在於您的 images 資料夾 -->
+                        <img src="https://randytsay.github.io/questionnaire/images/avatar_result.jpg" alt="耀文" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">分析完成！</h3>
+                        <p class="text-brand-100 text-xs mt-1">這是我根據大數據<br>為您整理的專屬報告 👇</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Header 結束 -->
+
+            <!-- Result Body (Scrollable) -->
+            <div class="p-6 overflow-y-auto">
+
+                <!-- 1. 潛意識分析 -->
+                <div class="mb-6">
+                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-shopping-cart text-brand-500"></i> 您的購物潛意識
+                    </h4>
+                    <div id="result-psy"
+                        class="bg-brand-50 rounded-xl p-4 text-gray-700 text-sm leading-relaxed border border-brand-100">
+                    </div>
+                </div>
+
+                <!-- 2. 消費決策風格 (NEW) -->
+                <div class="mb-6" id="decision-style-section">
+                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-orange-500"></i> 消費決策風格
+                    </h4>
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-4 border border-orange-200">
+                        <p id="result-decision-title" class="text-lg font-bold text-orange-700 mb-2">
+                            <!-- JS 填入標題 -->
+                        </p>
+                        <p id="result-decision-desc" class="text-gray-700 text-sm leading-relaxed mb-3">
+                            <!-- JS 填入描述 -->
+                        </p>
+                        <p id="result-decision-advice" class="text-orange-600 text-xs bg-white/50 p-2 rounded-lg">
+                            <!-- JS 填入建議 -->
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 生命靈數與流年 -->
+                <div class="mb-6" id="numerology-section">
+                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-crystal-ball text-yellow-500"></i> 生命靈數 & 2026 流年
+                    </h4>
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-4 border border-yellow-200">
+                        <div class="flex items-center gap-3 mb-3 border-b border-yellow-200 pb-2">
+                            <span class="text-3xl font-bold text-yellow-600" id="life-path-num">?</span>
+                            <div class="flex flex-col">
+                                <span class="text-sm text-yellow-800 font-bold" id="life-path-title">號人特質</span>
+                                <span class="text-xs text-yellow-600">您的天生性格</span>
+                            </div>
+                            <span
+                                class="text-xs text-white bg-yellow-500 px-2 py-1 rounded-full ml-auto">2026流年運勢</span>
+                        </div>
+
+                        <!-- 生命靈數性格 -->
+                        <p id="result-personality"
+                            class="text-gray-700 text-sm leading-relaxed mb-3 pb-3 border-b border-yellow-100 border-dashed">
+                            <!-- JS 填入性格 -->
+                        </p>
+
+                        <!-- 2026 流年 -->
+                        <p id="result-numerology" class="text-gray-700 text-sm leading-relaxed font-medium">
+                            <!-- JS 填入流年 -->
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 耀文建議 -->
+                <div class="mb-4">
+                    <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-green-500"></i> 耀文的專屬建議
+                    </h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        新的一年，記得多愛自己一點！無論是透過好物提升生活品質，還是投資健康，耀文行動商城都會陪著您一起變更好。✨
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-gray-100 shrink-0 bg-gray-50">
+                <button onclick="closeModal()"
+                    class="w-full py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg active:scale-95">
+                    <i class="fa-solid fa-check-circle mr-2"></i>太準了！關閉視窗
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ 全域變數 ============
+        let currentStep = 1;
+        const totalSteps = 7;
+        let userPsyChoice = '';
+        let userDecisionStyle = '';  // NEW: 消費決策風格
+        let currentEra = 'AD';       // NEW: 'AD' 或 'Minguo'
+        let isSubmitting = false;
+        let autoSaveTimer = null;
+
+        // ============ 初始化 ============
+        document.addEventListener('DOMContentLoaded', function () {
+            restoreProgress();
+            updateUI();
+            updateCompletion();
+
+            document.getElementById('surveyForm').addEventListener('change', function (e) {
+                if (e.target.matches('input, select, textarea')) {
+                    debouncedAutoSave();
+                    updateCompletion();
+                }
+            });
+
+            document.getElementById('surveyForm').addEventListener('input', function (e) {
+                if (e.target.matches('input[type="text"], input[type="date"]')) {
+                    debouncedAutoSave();
+                    updateCompletion();
+                }
+            });
+
+            window.addEventListener('beforeunload', function (e) {
+                if (currentStep > 1 && currentStep < totalSteps && !isSubmitting) {
+                    e.preventDefault();
+                    e.returnValue = '您的問卷尚未完成，確定要離開嗎？';
+                }
+            });
+        });
+
+        // ============ 自動儲存功能 ============
+        function autoSave() {
+            try {
+                const formData = new FormData(document.getElementById('surveyForm'));
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    if (data[key]) {
+                        if (Array.isArray(data[key])) {
+                            data[key].push(value);
+                        } else {
+                            data[key] = [data[key], value];
+                        }
+                    } else {
+                        data[key] = value;
+                    }
+                }
+                data._currentStep = currentStep;
+                data._psyChoice = userPsyChoice;
+                localStorage.setItem('surveyProgress', JSON.stringify(data));
+            } catch (error) {
+                console.error('自動儲存失敗:', error);
+            }
+        }
+
+        function debouncedAutoSave() {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(autoSave, 500);
+        }
+
+        function restoreProgress() {
+            try {
+                const saved = localStorage.getItem('surveyProgress');
+                if (!saved) return;
+
+                const data = JSON.parse(saved);
+
+                if (confirm('偵測到未完成的問卷，是否繼續填寫？')) {
+                    if (data._currentStep) currentStep = parseInt(data._currentStep);
+                    if (data._psyChoice) userPsyChoice = data._psyChoice;
+
+                    Object.keys(data).forEach(key => {
+                        if (key.startsWith('_')) return;
+                        const value = data[key];
+
+                        const textInput = document.querySelector(`input[name="${key}"][type="text"], input[name="${key}"][type="date"]`);
+                        if (textInput && !Array.isArray(value)) textInput.value = value;
+
+                        const radioInput = document.querySelector(`input[name="${key}"][value="${value}"]`);
+                        if (radioInput && radioInput.type === 'radio') radioInput.checked = true;
+
+                        if (Array.isArray(value)) {
+                            value.forEach(v => {
+                                const checkbox = document.querySelector(`input[name="${key}"][value="${v}"]`);
+                                if (checkbox && checkbox.type === 'checkbox') checkbox.checked = true;
+                            });
+                        }
+                    });
+                    showToast('已恢復您的填寫進度', 'success');
+                } else {
+                    localStorage.removeItem('surveyProgress');
+                }
+            } catch (error) {
+                console.error('恢復進度失敗:', error);
+                localStorage.removeItem('surveyProgress');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+
+            const colors = { success: 'bg-green-500', error: 'bg-red-500', warning: 'bg-yellow-500', info: 'bg-blue-500' };
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+
+            toast.className = `toast ${colors[type]} text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 font-medium`;
+            toast.innerHTML = `<i class="fa-solid ${icons[type]}"></i>${message}`;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 800); 
+        }
+
+        function updateCompletion() {
+            const allInputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
+            let totalFields = 0;
+            let filledFields = 0;
+
+            allInputs.forEach(input => {
+                const name = input.name;
+                if (!name) return;
+
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    if (input === document.querySelector(`input[name="${name}"]`)) {
+                        totalFields++;
+                        if (document.querySelector(`input[name="${name}"]:checked`)) filledFields++;
+                    }
+                } else {
+                    totalFields++;
+                    if (input.value && input.value.trim() !== '') filledFields++;
+                }
+            });
+
+            const percentage = totalFields > 0 ? Math.round((filledFields / totalFields) * 100) : 0;
+            document.getElementById('completion-text').textContent = `${percentage}%`;
+
+            const circle = document.getElementById('completion-circle');
+            const circumference = 2 * Math.PI * 10;
+            const offset = circumference - (percentage / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+        }
+
+        function updateUI() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('step-indicator').textContent = `Step ${currentStep}/${totalSteps}`;
+
+            document.querySelectorAll('.step-content').forEach((el, index) => {
+                el.classList.remove('active');
+                if (index + 1 === currentStep) el.classList.add('active');
+            });
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            } else if (currentStep === totalSteps) {
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+
+            document.getElementById('main-scroll').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validateStep(step) {
+            if (step === 1) {
+                if (!userPsyChoice) {
+                    showToast('請選擇一個選項', 'warning');
+                    return false;
+                }
+            }
+            if (step === 2) {
+                const nameInput = document.getElementById('input-name');
+                let isValid = true;
+
+                if (!nameInput.value.trim()) {
+                    nameInput.classList.add('ring-2', 'ring-red-500', 'border-red-500', 'error-shake');
+                    setTimeout(() => nameInput.classList.remove('ring-2', 'ring-red-500', 'border-red-500', 'error-shake'), 1000);
+                    showToast('請輸入您的名字', 'error');
+                    nameInput.focus();
+                    isValid = false;
+                }
+
+                const year = document.getElementById('birth-year').value;
+                const month = document.getElementById('birth-month').value;
+                const day = document.getElementById('birth-day').value;
+
+                if (!year || !month || !day) {
+                    const birthdayGroup = document.getElementById('birth-year').parentElement;
+                    birthdayGroup.classList.add('error-shake');
+                    setTimeout(() => birthdayGroup.classList.remove('error-shake'), 1000);
+                    showToast('請完整輸入生日 (年/月/日)', 'warning');
+                    isValid = false;
+                } else {
+                    const y = parseInt(year);
+                    const m = parseInt(month);
+                    const d = parseInt(day);
+
+                    let westernYear = y;
+                    if (currentEra === 'Minguo') westernYear += 1911;
+
+                    if (westernYear < 1920 || westernYear > 2026 || m < 1 || m > 12 || d < 1 || d > 31) {
+                        showToast('請輸入正確的日期格式', 'error');
+                        isValid = false;
+                    } else {
+                        syncFullBirthday();
+                    }
+                }
+
+                return isValid;
+            }
+            if (step === 3) {
+                const shoppingChecked = document.querySelectorAll('input[name="entry.1921616399"]:checked');
+                const shoppingOther = document.querySelector('input[type="text"][name="entry.1921616399"]');
+                if (shoppingChecked.length === 0 && (!shoppingOther || !shoppingOther.value.trim())) {
+                    showToast('請選擇購物場所', 'warning');
+                    return false;
+                }
+                const travelPrefChecked = document.querySelectorAll('input[name="entry.1954197687"]:checked');
+                const travelPrefOther = document.querySelector('input[type="text"][name="entry.1954197687"]');
+                if (travelPrefChecked.length === 0 && (!travelPrefOther || !travelPrefOther.value.trim())) {
+                    showToast('請選擇旅行偏好', 'warning');
+                    return false;
+                }
+                const travelPlanChecked = document.querySelectorAll('input[name="entry.1930263458"]:checked');
+                const travelPlanOther = document.querySelector('input[type="text"][name="entry.1930263458"]');
+                if (travelPlanChecked.length === 0 && (!travelPlanOther || !travelPlanOther.value.trim())) {
+                    showToast('請選擇旅行規劃方式', 'warning');
+                    return false;
+                }
+            }
+            if (step === 4) {
+                const healthChecked = document.querySelectorAll('input[name="entry.87245979"]:checked');
+                const healthOther = document.querySelector('input[type="text"][name="entry.87245979"]');
+                if (healthChecked.length === 0 && (!healthOther || !healthOther.value.trim())) {
+                    showToast('請選擇保健需求', 'warning');
+                    return false;
+                }
+                const weightChecked = document.querySelectorAll('input[name="entry.72843877"]:checked');
+                if (weightChecked.length === 0) {
+                    showToast('請選擇體重管理需求', 'warning');
+                    return false;
+                }
+            }
+            if (step === 5) {
+                if (!userDecisionStyle) {
+                    const styleGroup = document.getElementById('decision-style-group');
+                    styleGroup.classList.add('error-shake');
+                    setTimeout(() => styleGroup.classList.remove('error-shake'), 1000);
+                    showToast('請選擇您的消費決策風格', 'warning');
+                    return false;
+                }
+            }
+            if (step === 6) {
+                const skinTypeChecked = document.querySelector('input[name="entry.798701128"]:checked');
+                if (!skinTypeChecked) {
+                    const skinTypeGroup = document.getElementById('skin-type-group');
+                    skinTypeGroup.classList.add('error-shake');
+                    setTimeout(() => skinTypeGroup.classList.remove('error-shake'), 1000);
+                    showToast('請選擇您的肌膚屬性', 'warning');
+                    skinTypeGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                }
+                const skincareChecked = document.querySelectorAll('input[name="entry.3439028"]:checked');
+                const skincareOther = document.querySelector('input[type="text"][name="entry.3439028"]');
+                if (skincareChecked.length === 0 && (!skincareOther || !skincareOther.value.trim())) {
+                    showToast('請選擇護膚品', 'warning');
+                    return false;
+                }
+                const makeupChecked = document.querySelectorAll('input[name="entry.582521907"]:checked');
+                const makeupOther = document.querySelector('input[type="text"][name="entry.582521907"]');
+                if (makeupChecked.length === 0 && (!makeupOther || !makeupOther.value.trim())) {
+                    showToast('請選擇彩妝需求', 'warning');
+                    return false;
+                }
+            }
+            if (step === 7) {
+                const babyChecked = document.querySelectorAll('input[name="entry.835140164"]:checked');
+                if (babyChecked.length === 0) {
+                    showToast('請選擇嬰幼兒用品需求', 'warning');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function validateBirthday(dateString) {
+            if (!dateString) return false;
+            const date = new Date(dateString);
+            const today = new Date();
+            let age = today.getFullYear() - date.getFullYear();
+            const monthDiff = today.getMonth() - date.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) age--;
+
+            if (age < 17) {
+                showToast('年齡需滿17歲才能填寫問卷', 'error');
+                return false;
+            }
+            if (age > 86) {
+                showToast('請輸入有效的生日（年齡需小於86歲）', 'error');
+                return false;
+            }
+            if (date > today) {
+                showToast('生日不能是未來日期', 'error');
+                return false;
+            }
+            return true;
+        }
+
+        function validateFinalStep() {
+            const feedbackGroups = [
+                { name: 'entry.1155724814', id: 'feedback-1' },
+                { name: 'entry.1228384346', id: 'feedback-2' },
+                { name: 'entry.33216688', id: 'feedback-3' },
+                { name: 'entry.2018998320', id: 'feedback-4' }
+            ];
+
+            let isValid = true;
+            let firstInvalid = null;
+
+            feedbackGroups.forEach(group => {
+                const checked = document.querySelector(`input[name="${group.name}"]:checked`);
+                const container = document.getElementById(group.id);
+
+                if (!checked) {
+                    isValid = false;
+                    container.classList.add('border-error', 'error-shake');
+                    setTimeout(() => container.classList.remove('error-shake'), 1000);
+                    if (!firstInvalid) firstInvalid = container;
+                } else {
+                    container.classList.remove('border-error');
+                }
+            });
+
+            if (firstInvalid) {
+                firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                showToast('請完成所有必填問題', 'warning');
+            }
+            return isValid;
+        }
+
+        function changeStep(direction) {
+            if (direction === 1 && !validateStep(currentStep)) return;
+
+            if (direction === 1 && currentStep < totalSteps) {
+                const messages = ['太棒了！繼續加油 💪', '做得很好！快完成了 🎉', '很棒！再一點點就好 ✨', '完美！最後一步了 🌟', '即將揭曉結果！🔮'];
+                if (currentStep <= messages.length) showToast(messages[currentStep - 1], 'success');
+            }
+
+            currentStep += direction;
+            if (currentStep < 1) currentStep = 1;
+            if (currentStep > totalSteps) currentStep = totalSteps;
+
+            autoSave();
+            updateUI();
+        }
+
+        function storePsyResult(value) {
+            userPsyChoice = value;
+            autoSave();
+        }
+
+        function storeDecisionStyle(value) {
+            userDecisionStyle = value;
+            autoSave();
+        }
+
+        // ============ 新增：年份制切換 ============
+        function toggleEra() {
+            const toggle = document.getElementById('era-toggle');
+            const yearInput = document.getElementById('birth-year');
+            const textAD = document.getElementById('era-text-ad');
+            const textMinguo = document.getElementById('era-text-minguo');
+
+            if (toggle.checked) {
+                currentEra = 'Minguo';
+                yearInput.placeholder = '民國';
+                yearInput.maxLength = 3;
+                textMinguo.classList.add('text-brand-600', 'font-bold');
+                textMinguo.classList.remove('text-gray-500');
+                textAD.classList.add('text-gray-500');
+                textAD.classList.remove('text-brand-600', 'font-bold');
+            } else {
+                currentEra = 'AD';
+                yearInput.placeholder = 'YYYY';
+                yearInput.maxLength = 4;
+                textAD.classList.add('text-brand-600', 'font-bold');
+                textAD.classList.remove('text-gray-500');
+                textMinguo.classList.add('text-gray-500');
+                textMinguo.classList.remove('text-brand-600', 'font-bold');
+            }
+
+            yearInput.value = '';
+            syncFullBirthday();
+        }
+
+        function handleDateAutoJump(currentEl, nextId) {
+            // 1. 只保留數字
+            currentEl.value = currentEl.value.replace(/\D/g, '');
+            const val = currentEl.value;
+            let shouldJump = false;
+
+            // 2. 判斷是哪一個欄位
+            if (currentEl.id === 'birth-year') {
+                // --- 年份邏輯 (處理民國/西元) ---
+                let jumpLimit = 4; // 西元預設 4 碼
+                if (currentEra === 'Minguo') {
+                    if (val.length > 0) {
+                        // 民國年：首位非 1 則 2 碼跳轉 (民國 20-99)，首位為 1 則 3 碼跳轉 (民國 100+)
+                        jumpLimit = val[0] === '1' ? 3 : 2;
+                    } else {
+                        jumpLimit = 2;
+                    }
+                }
+                if (val.length >= jumpLimit) shouldJump = true;
+
+            } else if (currentEl.id === 'birth-month') {
+                // --- 月份邏輯 (新增優化) ---
+                // 規則 A: 輸入滿 2 碼 (例如 12) -> 跳轉
+                // 規則 B: 輸入 1 碼且數字大於 1 (例如 2,3...9) -> 自動跳轉 (因為月份不可能以 2-9 開頭卻還有第二位)
+                if (val.length >= 2 || (val.length === 1 && parseInt(val) > 1)) {
+                    shouldJump = true;
+                }
+
+            } else {
+                // --- 日期或其他欄位 (預設 2 碼) ---
+                if (val.length >= 2) shouldJump = true;
+            }
+
+            // 3. 執行跳轉
+            if (shouldJump) {
+                const nextEl = document.getElementById(nextId);
+                if (nextEl) {
+                    nextEl.focus();
+                    // 如果是跳轉過去的，建議全選內容，方便使用者修改 (可選)
+                    // nextEl.select(); 
+                }
+            }
+            
+            // 4. 同步資料到隱藏欄位
+            syncFullBirthday();
+        }        
+
+
+        function syncFullBirthday() {
+            const yearVal = document.getElementById('birth-year').value;
+            const m = document.getElementById('birth-month').value.padStart(2, '0');
+            const d = document.getElementById('birth-day').value.padStart(2, '0');
+
+            if (yearVal && m && d) {
+                let y = parseInt(yearVal);
+
+                if (currentEra === 'Minguo') {
+                    y += 1911;
+                }
+
+                document.getElementById('input-birthday').value = `${y}-${m}-${d}`;
+            } else {
+                document.getElementById('input-birthday').value = '';
+            }
+        }
+
+        function attemptSubmit() {
+            if (isSubmitting) {
+                showToast('正在提交中，請稍候...', 'info');
+                return;
+            }
+            if (!validateFinalStep()) return;
+
+            isSubmitting = true;
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>分析中...';
+            btn.disabled = true;
+
+            document.querySelectorAll('input[data-psy]').forEach(el => el.disabled = true);
+
+            document.querySelectorAll('input[type="text"][name^="entry."]').forEach(input => {
+                if (!input.value.trim()) {
+                    input.disabled = true;
+                }
+            });
+
+            handleFormSubmit();
+
+            const form = document.getElementById('surveyForm');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            }).then(() => {
+                showSuccessModal();
+            }).catch(err => {
+                console.error('Submit error:', err);
+                setTimeout(() => {
+                    submitted = true;
+                    form.submit();
+                    setTimeout(() => {
+                        if (isSubmitting) showSuccessModal();
+                    }, 1500);
+                }, 100);
+            });
+        }
+
+        function calculateLifePath(dateString) {
+            if (!dateString) return 0;
+            const digits = dateString.replace(/-/g, '').split('').map(Number);
+            let sum = digits.reduce((a, b) => a + b, 0);
+            while (sum > 9) sum = String(sum).split('').map(Number).reduce((a, b) => a + b, 0);
+            return sum;
+        }
+
+        function calculatePersonalYear2026(dateString) {
+            if (!dateString) return 0;
+            const parts = dateString.split('-');
+            const month = parts[1];
+            const day = parts[2];
+            const targetYear = "2026";
+            const combined = month + day + targetYear;
+            const digits = combined.split('').map(Number);
+            let sum = digits.reduce((a, b) => a + b, 0);
+            while (sum > 9) sum = String(sum).split('').map(Number).reduce((a, b) => a + b, 0);
+            return sum;
+        }
+
+        function getPsyText(type) {
+            const results = {
+                'visual': '您是「視覺系鑑賞家」！✨\n\n對美感有極高要求，喜歡有質感、包裝精美的商品。在 2026 年，不妨多添購一些能提升居家氛圍的裝飾或高顏值家電，會讓您心情大好。',
+                'auditory': '您是「社交型體驗者」！🎵\n\n比起商品本身，您更在意人與人的互動氛圍。適合參加團購或與朋友一起分享好物。2026 年適合多安排聚會或旅行，創造美好回憶。',
+                'olfactory': '您是「氛圍感營造者」！🌸\n\n對氣味和環境細節非常敏感，重視身心靈的放鬆。香氛、精油或舒適的寢具是您的開運好物。',
+                'price': '您是「精明理財家」！💰\n\n理性務實，最擅長找出高 CP 值的寶藏。2026 年您的財運不錯，適合透過精準消費來為自己累積更多財富。',
+                '': '您是「隨性生活家」！🎨\n\n不被特定框架束縛，喜歡自在地探索。新的一年，試著嘗試一些平常不會買的小物，或許會有意外驚喜！'
+            };
+            return results[type] || results[''];
+        }
+
+        function getDecisionStyleText(style) {
+            const styles = {
+                'impulse': {
+                    title: '🔥 衝動型決策者',
+                    desc: '您是行動派！看到喜歡的就想立刻擁有，相信直覺。',
+                    advice: '提醒：衝動購物雖然爽快，但建議設定每月「隨心購物金」額度，讓自己開心消費的同時也顧好荷包。'
+                },
+                'rational': {
+                    title: '🔍 理性型決策者',
+                    desc: '您是比價達人！做足功課、貨比三家才會出手，非常注重 CP 值。',
+                    advice: '提醒：您的謹慎很棒！但有時候太多比較反而讓自己疲累，對於小額商品可以試著放寬標準。'
+                },
+                'social': {
+                    title: '👥 社交型決策者',
+                    desc: '您重視口碑！朋友推薦或網紅評價對您影響很大，喜歡團購的氛圍。',
+                    advice: '提醒：適合參加團購活動或加入購物社群。但也要培養獨立判斷力，別人適合的不一定適合您。'
+                },
+                'patient': {
+                    title: '⏳ 耐心型決策者',
+                    desc: '您是等待高手！相信好東西值得等，常常等到打折或更好的選擇才出手。',
+                    advice: '提醒：您的耐心絕對是省錢利器！但有時候「早買早享受」也是一種幸福，別讓等待變成遺憾。'
+                }
+            };
+            return styles[style] || { title: '', desc: '', advice: '' };
+        }
+
+        // 結合決策風格與生命靈數的融合建議
+        function getCombinedInsight(style, lifePathNum) {
+            const insights = {
+                'impulse': {
+                    1: '您的衝動與獨立性相輔相成，2026 年勇敢開創新局！',
+                    2: '雖然衝動，但您內心渴望分享，適合和伴侶一起購物。',
+                    3: '衝動又愛玩的您，今年適合投資在體驗式消費！',
+                    4: '衝動型的 4 號人？試著用衝勁來突破過於保守的自己。',
+                    5: '完美組合！您對新事物的熱愛會帶來精彩的 2026。',
+                    6: '家人需要您的熱情照顧，衝動購買家用品是愛的表現！',
+                    7: '衝動是您突破理性框架的方式，偶爾放縱一下吧。',
+                    8: '您的果斷決策力會為事業帶來好運，該投資就投資！',
+                    9: '衝動地支持公益或環保商品，會為您帶來好運。'
+                },
+                'rational': {
+                    1: '獨立又理性，您做的每個決定都很可靠！',
+                    2: '理性中帶有溫柔，適合為家人精心挑選禮物。',
+                    3: '理性可以平衡您的創意，讓消費更有價值。',
+                    4: '天生絕配！您的務實讓每分錢都花得有意義。',
+                    5: '用理性篩選新奇商品，找出真正值得嘗試的好物。',
+                    6: '理性照顧家人，您的精打細算全家都受益。',
+                    7: '研究控×分析師＝購物前的資料收集王！',
+                    8: '理性消費是累積財富的秘訣，繼續保持！',
+                    9: '理性支持有意義的品牌，讓消費產生正面影響。'
+                },
+                'social': {
+                    1: '領袖魅力讓您成為購物群的意見領袖！',
+                    2: '您天生適合團購，和伙伴們一起買更開心！',
+                    3: '社交達人！您的推薦朋友們都會想跟單。',
+                    4: '用團購取得更好的價格，兼顧社交與精打細算。',
+                    5: '透過社群發現新奇好物，讓冒險更有保障。',
+                    6: '揪家人朋友團購，凝聚感情又省錢！',
+                    7: '團購前您會做足功課，是群組的智囊角色。',
+                    8: '社交人脈也是資源，善用團購累積更多好物。',
+                    9: '號召大家一起支持公益團購，放大善的力量！'
+                },
+                'patient': {
+                    1: '耐心等待最佳時機再出手，領導者的智慧！',
+                    2: '等待是一種浪漫，最好的總會在對的時機出現。',
+                    3: '耐心可以平衡您的衝動，讓快樂更持久。',
+                    4: '穩紮穩打，您的耐心是最強的累積武器！',
+                    5: '用耐心過濾真正值得的體驗，避免衝動消費。',
+                    6: '為家人耐心等待最好的商品，是最深的愛。',
+                    7: '等待讓您收集更多資訊，決策品質更高。',
+                    8: '耐心等待投資好時機，財富將大幅成長！',
+                    9: '好事多磨，您的耐心會為 2026 帶來圓滿結局。'
+                }
+            };
+            return insights[style] && insights[style][lifePathNum]
+                ? insights[style][lifePathNum]
+                : '相信自己的直覺，2026 年會有美好的購物體驗！';
+        }
+
+        function getNumerologyPersonality(num) {
+            const traits = {
+                1: "【天生的領導者】您擁有強大的獨立性與開創能力，喜歡自己做決定，目標導向明確。在消費上，您偏好獨特、能展現個人風格的商品，不喜歡跟風。",
+                2: "【敏感的協調者】您心思細膩，重視人際關係的和諧。直覺強，容易察覺他人的需求。在購物時，您在意商品的故事性與情感連結，也喜歡成對的物品。",
+                3: "【創意的藝術家】您天生樂觀，擁有孩子般的好奇心，喜歡新鮮有趣的事物。消費對您來說是一種娛樂，您容易被色彩繽紛、流行時尚的商品吸引。",
+                4: "【務實的建設者】您重視安全感與秩序，做事條理分明。在購物決策上，您非常理性，重視商品的實用性、耐用度與性價比，不會輕易衝動消費。",
+                5: "【自由的冒險家】您熱愛自由，不喜歡被束縛，適應力強。您對新奇科技、旅遊體驗或能帶來感官刺激的商品特別有興趣，喜歡嘗試沒用過的好物。",
+                6: "【關懷的療癒者】您富有責任感，將照顧他人視為己任，重視家庭溫暖。您常購買居家用品、健康食品或能照顧家人的東西，是標準的愛家一族。",
+                7: "【理性的分析師】您喜歡探究真理，有獨特的見解，不喜歡隨波逐流。在消費前，您會做足功課，比較規格與評論。您偏好有質感、低調奢華的商品。",
+                8: "【權威的實踐家】您對成功有強烈渴望，具備商業頭腦與執行力。您重視品牌與品質，認為好的商品是身份的象徵。您願意為了高品質而支付較高的價格。",
+                9: "【大愛的夢想家】您擁有寬廣的視野，富有人道主義精神。您想像力豐富，情感豐沛。在購物時，您可能會被支持公益、環保或具有心靈療癒功能的商品打動。"
+            };
+            return traits[num] || "";
+        }
+
+        function getNumerologyText(num) {
+            const texts = {
+                1: "【流年 1：播種期】🌱 2026 是您的全新開始！適合展開新計畫、新學習。勇敢嘗試以前不敢做的事吧，機會是留給主動出擊的您。",
+                2: "【流年 2：合作期】🤝 今年重點在「關係」與「平衡」。適合與人合作、談戀愛或修復關係。購物上適合買雙雙對對的物品，或送禮給重要的人。",
+                3: "【流年 3：創意期】🎨 充滿活力與創意的一年！社交活動會變多，心情也較開朗。適合投資在外表保養、彩妝或旅遊上，展現您的魅力。",
+                4: "【流年 4：穩定期】🏠 今年需要腳踏實地，為未來打基礎。適合整理居家環境、規劃儲蓄或購買耐用的家電家具。建立安全感是首要任務。",
+                5: "【流年 5：變化期】✈️ 自由與變動之年！您可能會想換工作、搬家或去遠方旅行。對於新奇、流行的商品會特別有興趣，盡情探索世界吧！",
+                6: "【流年 6：奉獻期】❤️ 愛與家庭的一年。重心會回歸家庭，適合添購居家用品、照顧家人健康。也是治療身心靈的好時機。",
+                7: "【流年 7：重整期】📚 適合獨處、思考與進修。您可能會想花錢上課或買書。心靈的富足比物質更重要，適合透過冥想或瑜珈來放鬆。",
+                8: "【流年 8：豐收期】💎 這是因果回報的一年，財運與事業運強！適合進行較大的投資或犒賞自己貴重物品。展現您的霸氣與成就吧！",
+                9: "【流年 9：完結期】🔄 斷捨離的時候到了。適合大掃除、丟掉不用的東西，為明年新的循環做準備。心靈環保與慈善公益會為您帶來好運。"
+            };
+            return texts[num] || "請輸入生日以查看分析。";
+        }
+
+        function generateResults() {
+            const psyText = getPsyText(userPsyChoice);
+            document.getElementById('result-psy').innerText = psyText;
+
+            const decisionStyleSection = document.getElementById('decision-style-section');
+            if (userDecisionStyle) {
+                decisionStyleSection.style.display = 'block';
+                const styleData = getDecisionStyleText(userDecisionStyle);
+                document.getElementById('result-decision-title').innerText = styleData.title;
+                document.getElementById('result-decision-desc').innerText = styleData.desc;
+                document.getElementById('result-decision-advice').innerText = styleData.advice;
+            } else {
+                decisionStyleSection.style.display = 'none';
+            }
+
+            const birthDate = document.getElementById('input-birthday').value;
+            const numerologySection = document.getElementById('numerology-section');
+
+            if (birthDate) {
+                numerologySection.style.display = 'block';
+                const lifePathNum = calculateLifePath(birthDate);
+                const personalYearNum = calculatePersonalYear2026(birthDate);
+
+                document.getElementById('life-path-num').innerText = lifePathNum;
+
+                let personalityText = getNumerologyPersonality(lifePathNum);
+                if (userDecisionStyle) {
+                    const combinedInsight = getCombinedInsight(userDecisionStyle, lifePathNum);
+                    personalityText += '\n\n💡 融合分析：' + combinedInsight;
+                }
+                document.getElementById('result-personality').innerText = personalityText;
+                document.getElementById('result-numerology').innerText = getNumerologyText(personalYearNum);
+            } else {
+                numerologySection.style.display = 'none';
+            }
+        }
+
+        function handleFormSubmit() {
+            generateResults();
+        }
+
+        function showSuccessModal() {
+            if (!isSubmitting) return;
+
+            document.getElementById('successModal').classList.remove('hidden');
+
+            localStorage.removeItem('surveyProgress');
+
+            document.querySelectorAll('input[data-psy]').forEach(el => el.disabled = false);
+
+            document.getElementById('surveyForm').reset();
+            currentStep = 1;
+            userPsyChoice = '';
+            isSubmitting = false;
+
+            document.querySelectorAll('.border-error').forEach(el => el.classList.remove('border-error'));
+            document.querySelectorAll('.ring-2').forEach(el => el.classList.remove('ring-2', 'ring-red-500', 'border-red-500'));
+
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = '<i class="fa-solid fa-sparkles mr-2"></i>查看測驗結果';
+            btn.disabled = false;
+
+            updateUI();
+            updateCompletion();
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            showToast('感謝您的填寫！期待再次為您服務 😊', 'success');
+        }
+    </script>
+</body>
+
+</html>
+
+
+
