@@ -391,46 +391,21 @@ class="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checke
 <span class="ml-2 text-xs font-medium text-gray-500" id="era-text-minguo">民國</span>
 </label>
 </div>
-<div class="relative">
-    <label class="block text-lg font-bold text-brand-700 mb-2">
-        您的生日（輸入月日4碼） 
-        <span class="text-red-500">*</span>
-    </label>
-
-    <input 
-        type="tel"
-        id="birth-mmdd"
-        maxlength="4"
-        inputmode="numeric"
-        placeholder="例如：0314"
-        class="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-2xl tracking-widest text-gray-700"
-        oninput="handleBirthdayInput(this)"
-    >
-
-    <p class="text-xs text-gray-500 mt-2">
-        請輸入生日月日，例如 3月14日 → 0314
-    </p>
-
-    <!-- Google Form 真正送出的欄位 -->
-    <input 
-        type="hidden"
-        name="entry.1637822650"
-        id="input-birthday"
-    >
+<div class="flex items-center gap-2">
+<input type="tel" id="birth-year" maxlength="4" placeholder="YYYY"
+class="w-24 px-3 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+oninput="handleDateAutoJump(this, 'birth-month')">
+<span class="text-gray-400 font-bold">/</span>
+<input type="tel" id="birth-month" maxlength="2" placeholder="MM"
+class="w-16 px-2 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+oninput="handleDateAutoJump(this, 'birth-day')">
+<span class="text-gray-400 font-bold">/</span>
+<input type="tel" id="birth-day" maxlength="2" placeholder="DD"
+class="w-16 px-2 py-3 rounded-xl border-2 border-gray-200 bg-gray-50 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all text-center text-lg text-gray-700"
+oninput="syncFullBirthday(); updateCompletion()">
 </div>
-
-<!-- 2026 星盤分析結果 -->
-<div 
-    id="fortune-result"
-    class="hidden mt-6 bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-5 animate-fade-in"
->
-    <h4 class="text-xl font-bold text-brand-700 mb-3">
-        🔮 2026 星盤運勢分析
-    </h4>
-
-    <div id="fortune-content" class="space-y-3 text-gray-700 leading-relaxed">
-    </div>
-</div>
+<!-- 隱藏實體用於 Google Forms 提交 -->
+<input type="hidden" name="entry.1637822650" id="input-birthday">
 <p class="text-xs text-gray-500 mt-1">請輸入真實生日 (例如：1990 / 05 / 20)</p>
 </div>
 </div>
@@ -2278,165 +2253,8 @@ document.getElementById('successModal').classList.add('hidden');
 showToast('感謝您的填寫！期待再次為您服務 😊', 'success');
 }
 </script>
- <script>
-
-function handleBirthdayInput(el) {
-
-    let value = el.value.replace(/\D/g, '');
-
-    if (value.length > 4) {
-        value = value.slice(0, 4);
-    }
-
-    el.value = value;
-
-    // 同步到 Google Form 欄位
-    document.getElementById('input-birthday').value = value;
-
-    // 4碼才開始分析
-    if (value.length === 4) {
-        generateFortune(value);
-    } else {
-        document.getElementById('fortune-result').classList.add('hidden');
-    }
-
-    updateCompletion();
-}
-
-function generateFortune(mmdd) {
-
-    const month = parseInt(mmdd.substring(0,2));
-    const day = parseInt(mmdd.substring(2,4));
-
-    let sign = '';
-    let fortune = '';
-    let luckyColor = '';
-    let luckyNumber = '';
-    let advice = '';
-
-    // 星座判斷
-    if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
-        sign = '牡羊座';
-        fortune = '2026 是你突破現況的重要一年，事業運與行動力全面提升。';
-        luckyColor = '烈焰紅';
-        luckyNumber = '9';
-        advice = '主動爭取機會，別害怕改變。';
-    }
-    else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
-        sign = '金牛座';
-        fortune = '財運穩定成長，適合建立長期收入與副業布局。';
-        luckyColor = '森林綠';
-        luckyNumber = '6';
-        advice = '2026 關鍵字：穩定累積。';
-    }
-    else if ((month == 5 && day >= 21) || (month == 6 && day <= 21)) {
-        sign = '雙子座';
-        fortune = '人際與社交運大開，容易遇到改變人生的新機會。';
-        luckyColor = '天空藍';
-        luckyNumber = '5';
-        advice = '多交流、多曝光自己。';
-    }
-    else if ((month == 6 && day >= 22) || (month == 7 && day <= 22)) {
-        sign = '巨蟹座';
-        fortune = '2026 是情感與家庭能量修復的一年。';
-        luckyColor = '珍珠白';
-        luckyNumber = '2';
-        advice = '學會照顧自己，能量才會流動。';
-    }
-    else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
-        sign = '獅子座';
-        fortune = '人氣與舞台運爆發，適合打造個人品牌。';
-        luckyColor = '金色';
-        luckyNumber = '1';
-        advice = '你會被更多人看見。';
-    }
-    else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
-        sign = '處女座';
-        fortune = '工作與財務規劃將進入新的層次。';
-        luckyColor = '奶茶色';
-        luckyNumber = '4';
-        advice = '細節會成為你的武器。';
-    }
-    else if ((month == 9 && day >= 23) || (month == 10 && day <= 23)) {
-        sign = '天秤座';
-        fortune = '感情與合作運勢提升，容易遇到貴人。';
-        luckyColor = '粉紫色';
-        luckyNumber = '7';
-        advice = '好的合作將帶來巨大轉變。';
-    }
-    else if ((month == 10 && day >= 24) || (month == 11 && day <= 22)) {
-        sign = '天蠍座';
-        fortune = '2026 將迎來深層轉變與能量重生。';
-        luckyColor = '深紫色';
-        luckyNumber = '8';
-        advice = '放下舊能量，新的機會才會進來。';
-    }
-    else if ((month == 11 && day >= 23) || (month == 12 && day <= 21)) {
-        sign = '射手座';
-        fortune = '旅行、學習與新領域拓展運勢強大。';
-        luckyColor = '寶石藍';
-        luckyNumber = '3';
-        advice = '世界會帶給你新的答案。';
-    }
-    else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
-        sign = '摩羯座';
-        fortune = '事業運快速上升，是建立影響力的重要年份。';
-        luckyColor = '黑金色';
-        luckyNumber = '10';
-        advice = '耐心累積，成果會很巨大。';
-    }
-    else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
-        sign = '水瓶座';
-        fortune = '創意與突破力極強，適合發展新方向。';
-        luckyColor = '電光藍';
-        luckyNumber = '11';
-        advice = '你的靈感會創造新價值。';
-    }
-    else {
-        sign = '雙魚座';
-        fortune = '直覺與靈性感應增強，容易吸引好運。';
-        luckyColor = '海洋綠';
-        luckyNumber = '12';
-        advice = '相信自己的感受。';
-    }
-
-    const html = `
-        <div class="bg-white rounded-xl p-4 shadow-sm">
-            <p class="text-lg font-bold text-brand-700 mb-2">
-                ✨ 你的星座：${sign}
-            </p>
-
-            <p class="mb-3">
-                ${fortune}
-            </p>
-
-            <div class="grid grid-cols-2 gap-3 mb-3">
-                <div class="bg-purple-50 rounded-lg p-3">
-                    <div class="text-xs text-gray-500 mb-1">幸運色</div>
-                    <div class="font-bold">${luckyColor}</div>
-                </div>
-
-                <div class="bg-pink-50 rounded-lg p-3">
-                    <div class="text-xs text-gray-500 mb-1">幸運數字</div>
-                    <div class="font-bold">${luckyNumber}</div>
-                </div>
-            </div>
-
-            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                <div class="font-bold mb-1">2026 關鍵提醒</div>
-                <div>${advice}</div>
-            </div>
-        </div>
-    `;
-
-    document.getElementById('fortune-content').innerHTML = html;
-    document.getElementById('fortune-result').classList.remove('hidden');
-}
-
-</script>
 </body>
 
 
 </html>
-
 
