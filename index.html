@@ -1242,26 +1242,41 @@
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>分析中...';
             btn.disabled = true;
 
-            document.querySelectorAll('input[data-psy]').forEach(el => el.disabled = true);
+            // 避免送出空白的其他選項導致 Google 表單錯誤，暫時 disabled
+            const emptyInputs = [];
             document.querySelectorAll('input[type="text"][name^="entry."]').forEach(input => {
                 if (!input.value.trim()) {
                     input.disabled = true;
+                    emptyInputs.push(input);
                 }
             });
 
             handleFormSubmit(); // 產生結果彈窗的資料
 
             const form = document.getElementById('surveyForm');
+            
+            // 轉換為 Google 表單接受的 urlencoded 格式
             const formData = new FormData(form);
+            const urlParams = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                urlParams.append(pair[0], pair[1]);
+            }
+
+            // 恢復被 disabled 的欄位，以免影響下次送出
+            emptyInputs.forEach(input => input.disabled = false);
 
             fetch(form.action, {
                 method: 'POST',
                 mode: 'no-cors',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: urlParams.toString()
             }).then(() => {
                 showSuccessModal();
             }).catch(err => {
                 console.error('Submit error:', err);
+                // 備用方案：如果 fetch 失敗，使用傳統隱藏 iframe 方式送出
                 setTimeout(() => {
                     submitted = true;
                     form.submit();
